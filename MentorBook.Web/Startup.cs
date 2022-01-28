@@ -31,7 +31,8 @@ namespace MentorBook.Web
             //test = Configuration["Values:SubValue"];
             string sqlConnectionString = Configuration.GetConnectionString("SQLConnectionString");
 
-            services.AddScoped<IUserRepository>(x => new UserRepository(sqlConnectionString));
+            //services.AddScoped<IUserRepository>(x => new UserRepository(sqlConnectionString));
+            services.AddScoped<IUserRepository, UserMockingRepository>();
             services.AddScoped<IUserService, UserService>();
 
             services.AddControllers();

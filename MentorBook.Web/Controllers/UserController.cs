@@ -44,14 +44,35 @@ namespace MentorBook.Web.Controllers
         [HttpGet("GetUserDetails/{id}")]
         public ActionResult<UserDetailedUserVM> GetUser(int id)
         {
+            User user = _userService.GetUser(id);
 
-            return Ok();
+            if (user != null)
+            {
+                UserDetailedUserVM modelTorReturn = new UserDetailedUserVM(user);
+                return Ok(modelTorReturn);
+            }
+
+            return NotFound();
         }
 
         [HttpPost("Create")]
         public ActionResult InsertUser([FromBody] NewUserQM user)
         {
-            return Ok();
+            User dbUser = new User();
+            dbUser.FirstName = user.FirstName;
+            dbUser.LastName = user.LastName;
+            dbUser.Email = user.Email;
+            dbUser.Phone = user.Phone;
+            dbUser.DateOfBirth = user.DateOfBirth;
+
+            bool result = _userService.InsertUser(dbUser);
+
+            if (result == true)
+            {
+                return Ok();
+            }
+
+            return new StatusCodeResult(400);
         }
     }
 }

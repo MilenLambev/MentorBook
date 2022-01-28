@@ -1,4 +1,5 @@
 ﻿using MentorBook.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -79,6 +80,11 @@ namespace MentorBook.Data.Repositories
         public void InsertUser(User user)
         {
             Execute(INSERT_USER, user);
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
