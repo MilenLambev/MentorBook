@@ -19,9 +19,19 @@ namespace MentorBook.Business
             return _userRepository.GetAllUsers();
         }
 
+        public List<User> GetInfoString(string info)
+        {
+            return _userRepository.GetUserByInfo(info);
+        }
+
         public User GetUser(int UserId)
         {
             return _userRepository.GetUserById(UserId);
+        }
+
+        public User GetUserEmail(string email)
+        {
+            return _userRepository.GetUserEmailInfo(email);
         }
 
         public bool InsertUser(User user)

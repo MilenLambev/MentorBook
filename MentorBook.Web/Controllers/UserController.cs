@@ -55,6 +55,36 @@ namespace MentorBook.Web.Controllers
             return NotFound();
         }
 
+        [HttpGet("GetUserDetailsInfo/{info}")]
+        public ActionResult<UserDetailedUserVM> GetStringInfo(string info)
+        {
+            List<UserDetailedUserVM> result = new List<UserDetailedUserVM>();
+            List<User> allUsers = _userService.GetInfoString(info.ToLower());
+
+            foreach (User user in allUsers)
+            {
+                UserDetailedUserVM infoAboutUser = new UserDetailedUserVM(user);
+
+                result.Add(infoAboutUser);
+            }
+
+            return Ok(result);
+        }
+
+        [HttpGet("GetFullInformation/{email}")]
+        public ActionResult<UserDetailedUserVM> GetInfoEmail(string email)
+        {
+            User user = _userService.GetUserEmail(email);
+
+            if (user != null)
+            {
+                UserDetailedUserVM modelTorReturn = new UserDetailedUserVM(user);
+                return Ok(modelTorReturn);
+            }
+
+            return NotFound();
+        }
+
         [HttpPost("Create")]
         public ActionResult InsertUser([FromBody] NewUserQM user)
         {

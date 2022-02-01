@@ -10,5 +10,7 @@ namespace MentorBook.Data.Repositories
 
         User GetUserByEmail(string email);
         void InsertUser(User user);
+        User GetUserEmailInfo(string email);
+        List<User> GetUserByInfo(string info);
     }
 }
