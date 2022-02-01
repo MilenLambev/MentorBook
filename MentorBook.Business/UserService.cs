@@ -19,9 +19,9 @@ namespace MentorBook.Business
             return _userRepository.GetAllUsers();
         }
 
-        public List<User> GetInfoString(string info)
+        public List<User> GetUserByFilter(string fillteringVlaue)
         {
-            return _userRepository.GetUserByInfo(info);
+            return _userRepository.GetUserByFilter(fillteringVlaue);
         }
 
         public User GetUser(int UserId)
