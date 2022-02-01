@@ -34,5 +34,16 @@ namespace MentorBook.Data.Repositories
 
             _allUsersInTheUniverse.Add(user);
         }
+
+        public User GetUserEmailInfo(string email)
+        {
+            return _allUsersInTheUniverse.FirstOrDefault(u => u.Email == email);
+        }
+
+        public List<User> GetUserByInfo(string info)
+        {
+            return _allUsersInTheUniverse;
+        }
+
     }
 }
