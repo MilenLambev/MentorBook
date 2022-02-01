@@ -28,12 +28,12 @@ namespace MentorBook.Web.Controllers
         [HttpGet("GetAll")]
         public ActionResult<List<UserShortDataVM>> Get()
         {
-            List<UserShortDataVM> result = new List<UserShortDataVM>();
+            List<UserDetailedUserVM> result = new List<UserDetailedUserVM>();
             List<User> allUsers = _userService.GetAllUsers();
 
             foreach (User user in allUsers)
             {
-                UserShortDataVM returnToTheClientModel = new UserShortDataVM(user);
+                UserDetailedUserVM returnToTheClientModel = new UserDetailedUserVM(user);
 
                 result.Add(returnToTheClientModel);
             }
@@ -55,11 +55,11 @@ namespace MentorBook.Web.Controllers
             return NotFound();
         }
 
-        [HttpGet("GetUserDetailsInfo/{info}")]
-        public ActionResult<UserDetailedUserVM> GetStringInfo(string info)
+        [HttpGet("GetUserByFilter/{fillteringVlaue}")]
+        public ActionResult<UserDetailedUserVM> GetStringInfo(string fillteringVlaue)
         {
             List<UserDetailedUserVM> result = new List<UserDetailedUserVM>();
-            List<User> allUsers = _userService.GetInfoString(info.ToLower());
+            List<User> allUsers = _userService.GetUserByFilter(fillteringVlaue.ToLower());
 
             foreach (User user in allUsers)
             {

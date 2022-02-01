@@ -47,7 +47,7 @@ namespace MentorBook.Data.Repositories
               ,[CurrentTownId]
               ,[DateCreated]
           FROM [dbo].[Users]
-         WHERE [FirstName] LIKE CONCAT(@info,'%') OR [LastName] LIKE CONCAT(@info,'%') OR [Email] LIKE CONCAT(@info,'%')
+         WHERE [FirstName] LIKE CONCAT(@fillteringVlaue,'%') OR [LastName] LIKE CONCAT(@fillteringVlaue,'%') OR [Email] LIKE CONCAT(@fillteringVlaue,'%')
         ";
 
         private const string GET_USER_BY_EMAIL = @"
@@ -114,9 +114,9 @@ namespace MentorBook.Data.Repositories
             return result.FirstOrDefault();
         }
 
-        public List<User> GetUserByInfo(string info)
+        public List<User> GetUserByFilter(string fillteringVlaue)
         {
-            List<User> result = Query<User>(GET_USER_BY_INFO,new {info});
+            List<User> result = Query<User>(GET_USER_BY_INFO,new { fillteringVlaue });
             return result;
         }
 

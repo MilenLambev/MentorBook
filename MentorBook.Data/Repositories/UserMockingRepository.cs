@@ -40,7 +40,7 @@ namespace MentorBook.Data.Repositories
             return _allUsersInTheUniverse.FirstOrDefault(u => u.Email == email);
         }
 
-        public List<User> GetUserByInfo(string info)
+        public List<User> GetUserByFilter(string fillteringVlaue)
         {
             return _allUsersInTheUniverse;
         }

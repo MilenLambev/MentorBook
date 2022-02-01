@@ -10,6 +10,6 @@ namespace MentorBook.Business
         User GetUser(int UserId);
         bool InsertUser(User user);
         User GetUserEmail(string email);
-        List<User> GetInfoString(string info);
+        List<User> GetUserByFilter(string fillteringVlaue);
     }
 }
