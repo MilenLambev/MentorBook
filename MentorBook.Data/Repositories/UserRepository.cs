@@ -116,7 +116,7 @@ namespace MentorBook.Data.Repositories
 
         public List<User> GetUserByInfo(string info)
         {
-            List<User> result = Query<User>(GET_USER_BY_INFO,new { info});
+            List<User> result = Query<User>(GET_USER_BY_INFO,new {info});
             return result;
         }
 

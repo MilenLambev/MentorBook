@@ -68,7 +68,7 @@ namespace MentorBook.Web.Controllers
                 result.Add(infoAboutUser);
             }
 
-            return Ok(result);
+               return Ok(result);
         }
 
         [HttpGet("GetFullInformation/{email}")]

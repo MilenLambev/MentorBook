@@ -10,3 +10,15 @@ C:\Users\chess\MentorBook-master\MentorBook.Data\obj\Debug\net5.0\MentorBook.Dat
 C:\Users\chess\MentorBook-master\MentorBook.Data\obj\Debug\net5.0\MentorBook.Data.dll
 C:\Users\chess\MentorBook-master\MentorBook.Data\obj\Debug\net5.0\ref\MentorBook.Data.dll
 C:\Users\chess\MentorBook-master\MentorBook.Data\obj\Debug\net5.0\MentorBook.Data.pdb
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\bin\Debug\net5.0\MentorBook.Data.deps.json
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\bin\Debug\net5.0\MentorBook.Data.dll
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\bin\Debug\net5.0\ref\MentorBook.Data.dll
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\bin\Debug\net5.0\MentorBook.Data.pdb
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\obj\Debug\net5.0\MentorBook.Data.csproj.AssemblyReference.cache
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\obj\Debug\net5.0\MentorBook.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\obj\Debug\net5.0\MentorBook.Data.AssemblyInfoInputs.cache
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\obj\Debug\net5.0\MentorBook.Data.AssemblyInfo.cs
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\obj\Debug\net5.0\MentorBook.Data.csproj.CoreCompileInputs.cache
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\obj\Debug\net5.0\MentorBook.Data.dll
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\obj\Debug\net5.0\ref\MentorBook.Data.dll
+D:\API_MENTORMATE\MentorBook\MentorBook.Data\obj\Debug\net5.0\MentorBook.Data.pdb
