@@ -25,9 +25,9 @@ namespace MentorBook.Web.Controllers
             }
 
             [HttpGet("GetUserFriendsCount")]
-            public ActionResult<List<int>> GetNumber(int userID)
+            public ActionResult<int> GetNumber(int userID)
             {
-               return _friendshipController.GetUserFriendsCountById(userID);
+               return Ok(_friendshipController.GetUserFriendsCountById(userID).First());
             }
 
     }

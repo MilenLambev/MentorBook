@@ -35,8 +35,8 @@ namespace MentorBook.Web
             // services.AddScoped<IUserRepository, UserMockingRepository>();
             services.AddScoped<IUserService, UserService>();
 
-            services.AddScoped<IFriendshipRepository>(x => new UserFriendshipRepository(sqlConnectionString));
-            services.AddScoped<IFriendshipService, UserFriendshipService>();
+            services.AddScoped<IFriendshipRepository>(x => new FriendshipRepository(sqlConnectionString));
+            services.AddScoped<IFriendshipService, FriendshipService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

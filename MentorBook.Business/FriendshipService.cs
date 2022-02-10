@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 namespace MentorBook.Business
 { 
-    public class UserFriendshipService : IFriendshipService
+    public class FriendshipService : IFriendshipService
     {
         private readonly IFriendshipRepository _friendshipRepository;
-        public UserFriendshipService(IFriendshipRepository friendshipRepository)
+        public FriendshipService(IFriendshipRepository friendshipRepository)
         {
             _friendshipRepository = friendshipRepository;
         }
