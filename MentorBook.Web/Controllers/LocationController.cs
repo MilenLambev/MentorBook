@@ -42,7 +42,7 @@ namespace MentorBook.Web.Controllers
         }
 
         [HttpGet("GetCitiesByCountryId")]
-        public ActionResult<CityVM> GetCitiesByCountryId(int countryId)
+        public ActionResult<List<CityVM>> GetCitiesByCountryId(int countryId)
         {
             List<CityVM> result = new List<CityVM>();   
             List<Town> countrysCities = _locationService.GetCitiesByCountryId(countryId);

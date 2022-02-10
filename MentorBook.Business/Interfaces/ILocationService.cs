@@ -12,6 +12,5 @@ namespace MentorBook.Business
     {
         List<Country> GetAllCountries();
         List<Town> GetCitiesByCountryId(int coutryId);
-
     }
 }
