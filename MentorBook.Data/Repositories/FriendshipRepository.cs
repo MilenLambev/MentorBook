@@ -16,6 +16,7 @@ namespace MentorBook.Data.Repositories
             SELECT * FROM Friends f WHERE RequestAcceptedDate IS NOT NULL AND User2id = @UserId
             )x";
 
+
         private const string GET_FRIEND_BY_ID = @"
         SELECT
 	    U1. [Id],[Email],[FirstName],[LastName]
@@ -40,6 +41,8 @@ namespace MentorBook.Data.Repositories
         LEFT JOIN [Users] U2 ON U2.Id = F.User2Id
         WHERE  [User1Id] = @id AND [RequestAcceptedDate] is  NULL
         ";
+
+=======
 
         #endregion
 
