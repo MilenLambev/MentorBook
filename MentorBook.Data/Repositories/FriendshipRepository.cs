@@ -41,9 +41,6 @@ namespace MentorBook.Data.Repositories
         LEFT JOIN [Users] U2 ON U2.Id = F.User2Id
         WHERE  [User1Id] = @id AND [RequestAcceptedDate] is  NULL
         ";
-
-=======
-
         #endregion
 
         public FriendshipRepository(string dbConnString) : base(dbConnString) { }
