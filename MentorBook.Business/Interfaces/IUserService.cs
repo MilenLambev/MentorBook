@@ -2,7 +2,7 @@
 using MentorBook.Data.Repositories;
 using System.Collections.Generic;
 
-namespace MentorBook.Business
+namespace MentorBook.Business 
 {
     public interface IUserService
     {

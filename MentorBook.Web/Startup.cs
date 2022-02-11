@@ -32,8 +32,13 @@ namespace MentorBook.Web
             string sqlConnectionString = Configuration.GetConnectionString("SQLConnectionString");
 
             services.AddScoped<IUserRepository>(x => new UserRepository(sqlConnectionString));
+            services.AddScoped<ILocationRepository>(x => new LocationRepository(sqlConnectionString));
             //services.AddScoped<IUserRepository, UserMockingRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ILocationService, LocationService>();
+
+            services.AddScoped<IFriendshipRepository>(x => new FriendshipRepository(sqlConnectionString));
+            services.AddScoped<IFriendshipService, FriendshipService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
