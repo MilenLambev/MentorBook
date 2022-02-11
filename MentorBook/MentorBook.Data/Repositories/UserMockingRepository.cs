@@ -34,5 +34,20 @@ namespace MentorBook.Data.Repositories
 
             _allUsersInTheUniverse.Add(user);
         }
+
+        public List<User> GetUserByFilter(string fillteringValue)
+        {
+            return _allUsersInTheUniverse;
+        }
+
+        public User GetUserEmail(string email)
+        {
+            return _allUsersInTheUniverse.FirstOrDefault(u => u.Email == email); ;
+        }
+
+        public List<User> GetUserAdditionalInfoByUserId(int userId)
+        {
+            return _allUsersInTheUniverse;//.FirstOrDefault(u => u.Id == userId);
+        }
     }
 }

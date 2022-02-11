@@ -45,5 +45,9 @@ namespace MentorBook.Data.Repositories
             return _allUsersInTheUniverse;
         }
 
+        public User GetUserAdditionalInfoByUserId(int userId)
+        {
+            return _allUsersInTheUniverse.FirstOrDefault(u => u. == userId);
+        }
     }
 }

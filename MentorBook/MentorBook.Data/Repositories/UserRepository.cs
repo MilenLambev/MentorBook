@@ -33,7 +33,7 @@ namespace MentorBook.Data.Repositories
               ,[CurrentTownId]
               ,[DateCreated]
           FROM [dbo].[Users]
-        WHERE [Id] = @UserId
+          WHERE [Id] = @UserId
         ";
 
         private const string INSERT_USER = @"
@@ -56,6 +56,35 @@ namespace MentorBook.Data.Repositories
                ,@CurrentTownId
                ,@DateCreated)
         ";
+
+        private const string GET_USER_BY_INFO = @"
+        SELECT
+         [Id]
+              ,[Email]
+              ,[FirstName]
+              ,[LastName]
+              ,[Phone]
+              ,[DateOfBirth]
+              ,[HomeTownId]
+              ,[CurrentTownId]
+              ,[DateCreated]
+          FROM [dbo].[Users]
+         WHERE [FirstName] LIKE CONCAT(@fillteringValue,'%') OR [LastName] LIKE CONCAT(@fillteringValue,'%') OR [Email] LIKE CONCAT(@fillteringValue,'%')
+        ";
+
+        private const string GET_USER_BY_EMAIL = @"
+        SELECT *
+        FROM [dbo].[Users]
+        WHERE [Email] = @Email
+        ";
+
+        private const string GET_USER_EMAIL = @"
+        SELECT [Id],[Email]
+        FROM [dbo].[Users]
+        WHERE [Email] = @Email
+        ";
+
+        //private const string GET
 
         #endregion
 
@@ -87,6 +116,24 @@ namespace MentorBook.Data.Repositories
             throw new NotImplementedException();
         }
 
+        public User GetUserEmailInfo(string email)
+        {
+            List<User> result = Query<User>(GET_USER_BY_EMAIL, new { email });
+
+            return result.FirstOrDefault();
+        }
+
+        public List<User> GetUserByFilter(string fillteringValue)
+        {
+            List<User> result = Query<User>(GET_USER_BY_INFO, new { fillteringValue });
+            return result;
+        }
+
+        public User GetUserEmail(string email)
+        {
+            List<User> result = Query<User>(GET_USER_EMAIL, new { email });
+            return result.FirstOrDefault();
+        }
         #endregion
     }
 }
