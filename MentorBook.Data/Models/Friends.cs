@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MentorBook.Data.Models
 {
-   public class Friend
+   public class Friends
     {
         public int Id { get; set; }
         public string Email { get; set; }

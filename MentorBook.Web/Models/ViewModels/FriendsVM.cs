@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MentorBook.Web.Models.ViewModels
 {
-    public class FriendVM
+    public class FriendsVM
     {
-        public FriendVM(Friend friend)
+        public FriendsVM(Friends friend)
         {
             Id = friend.Id;
             Email = friend.Email;
