@@ -16,9 +16,9 @@ namespace MentorBook.Data.Repositories
         public FriendshipRepository(string dbConnString) : base(dbConnString) { }
         #region Public Methods
 
-        public List<int> GetUserFriendsCountById(int UserId)
+        public int GetUserFriendsCountById(int UserId)
         {
-            List<int> result = Query<int>(GET_USER_FRIENDSCOUNT_BY_ID, new { UserId });
+            int result = Query<int>(GET_USER_FRIENDSCOUNT_BY_ID, new { UserId }).First();
 
             return result;
         }

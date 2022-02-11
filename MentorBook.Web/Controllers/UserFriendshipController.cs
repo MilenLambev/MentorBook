@@ -27,7 +27,7 @@ namespace MentorBook.Web.Controllers
             [HttpGet("GetUserFriendsCount")]
             public ActionResult<int> GetNumber(int userID)
             {
-               return Ok(_friendshipController.GetUserFriendsCountById(userID).First());
+               return Ok(_friendshipController.GetUserFriendsCountById(userID));
             }
 
     }

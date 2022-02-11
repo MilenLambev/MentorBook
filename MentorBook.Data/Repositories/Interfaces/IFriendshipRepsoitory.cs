@@ -6,6 +6,6 @@ namespace MentorBook.Data.Repositories
 {
     public interface IFriendshipRepository
     {
-        List<int> GetUserFriendsCountById(int UserId);
+        int GetUserFriendsCountById(int UserId);
     }
 }

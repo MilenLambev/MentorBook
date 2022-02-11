@@ -6,6 +6,6 @@ namespace MentorBook.Business
 {
     public interface IFriendshipService
     { 
-        List<int> GetUserFriendsCountById(int UserId);
+        int GetUserFriendsCountById(int UserId);
     }
 }

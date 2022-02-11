@@ -13,7 +13,7 @@ namespace MentorBook.Business
             _friendshipRepository = friendshipRepository;
         }
 
-        public List<int> GetUserFriendsCountById(int UserId)
+        public int GetUserFriendsCountById(int UserId)
         {
             return _friendshipRepository.GetUserFriendsCountById(UserId);
         }
