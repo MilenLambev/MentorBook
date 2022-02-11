@@ -30,5 +30,35 @@ namespace MentorBook.Web.Controllers
                return Ok(_friendshipController.GetUserFriendsCountById(userID));
             }
 
+        [HttpGet("GetFriendById")]
+        public ActionResult<List<FriendVM>> GetFriendById(int id)
+        {
+            List<FriendVM> result = new List<FriendVM>();
+            List<Friend> friend = _friendshipController.GetFriendById(id);
+
+            foreach (Friend friendById in friend)
+            {
+                FriendVM returnToTheClientModel = new FriendVM(friendById);
+                result.Add(returnToTheClientModel);
+            }
+
+            return Ok(result);
+        }
+
+        [HttpGet("GetPendingFriend")]
+        public ActionResult<List<FriendVM>> GetPendingFriend(int id)
+        {
+            List<FriendVM> result = new List<FriendVM>();
+            List<Friend> friend = _friendshipController.GetPendingFriend(id);
+
+            foreach (Friend friendById in friend)
+            {
+                FriendVM returnToTheClientModel = new FriendVM(friendById);
+                result.Add(returnToTheClientModel);
+            }
+
+            return Ok(result);
+        }
+
     }
 }

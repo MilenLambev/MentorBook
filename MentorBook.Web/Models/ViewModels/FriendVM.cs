@@ -22,3 +22,4 @@ namespace MentorBook.Web.Models.ViewModels
         public string LastName { get; set; }
     }
 }
+
