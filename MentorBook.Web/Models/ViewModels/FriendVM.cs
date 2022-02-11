@@ -15,7 +15,6 @@ namespace MentorBook.Web.Models.ViewModels
             FirstName = friend.FirstName;
             LastName = friend.LastName;
         }
-
         public int Id { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }

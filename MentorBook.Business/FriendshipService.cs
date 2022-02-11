@@ -13,12 +13,12 @@ namespace MentorBook.Business
             _friendshipRepository = friendshipRepository;
         }
 
-        public List<Friend> GetFriendById(int id)
+        public List<Friend> GetFriendsByUserId(int friendId)
         {
-            return _friendshipRepository.GetFriendById(id);
+            return _friendshipRepository.GetFriendById(friendId);
         }
 
-        public List<Friend> GetPendingFriend(int id)
+        public List<Friend> GetPendingFriends(int id)
         {
             return _friendshipRepository.GetPendingFriend(id);
         }

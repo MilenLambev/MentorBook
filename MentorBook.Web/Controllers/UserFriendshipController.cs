@@ -30,11 +30,11 @@ namespace MentorBook.Web.Controllers
                return Ok(_friendshipController.GetUserFriendsCountById(userID));
             }
 
-        [HttpGet("GetFriendById")]
+        [HttpGet("GetFriends")]
         public ActionResult<List<FriendVM>> GetFriendById(int id)
         {
             List<FriendVM> result = new List<FriendVM>();
-            List<Friend> friend = _friendshipController.GetFriendById(id);
+            List<Friend> friend = _friendshipController.GetFriendsByUserId(id);
 
             foreach (Friend friendById in friend)
             {
@@ -45,13 +45,13 @@ namespace MentorBook.Web.Controllers
             return Ok(result);
         }
 
-        [HttpGet("GetPendingFriend")]
-        public ActionResult<List<FriendVM>> GetPendingFriend(int id)
+        [HttpGet("GetPendingFriendsRequest")]
+        public ActionResult<List<FriendVM>> GetPendingFriendRequest(int id)
         {
             List<FriendVM> result = new List<FriendVM>();
-            List<Friend> friend = _friendshipController.GetPendingFriend(id);
+            List<Friend> friends = _friendshipController.GetPendingFriends(id);
 
-            foreach (Friend friendById in friend)
+            foreach (Friend friendById in friends)
             {
                 FriendVM returnToTheClientModel = new FriendVM(friendById);
                 result.Add(returnToTheClientModel);

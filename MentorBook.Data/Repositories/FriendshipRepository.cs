@@ -28,7 +28,7 @@ namespace MentorBook.Data.Repositories
         LEFT JOIN [Users] U2 ON U2.Id = F.User2Id
         WHERE  [User1Id] = @id AND [RequestAcceptedDate] is not NULL
         ";
-        private const string GET__PENDING_FRIEND_BY_ID = @"
+        private const string GET__PENDING_FRIEND_REQUEST_BY_ID = @"
         SELECT
 	    U1. [Id],[Email],[FirstName],[LastName]
         FROM [dbo].[Friends] F 
@@ -54,7 +54,7 @@ namespace MentorBook.Data.Repositories
 
         public List<Friend> GetPendingFriend(int id)
         {
-            List<Friend> result = Query<Friend>(GET__PENDING_FRIEND_BY_ID, new { id });
+            List<Friend> result = Query<Friend>(GET__PENDING_FRIEND_REQUEST_BY_ID, new { id });
 
             return result;
         }

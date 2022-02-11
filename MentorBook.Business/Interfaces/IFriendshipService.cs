@@ -7,7 +7,7 @@ namespace MentorBook.Business
     public interface IFriendshipService
     { 
         int GetUserFriendsCountById(int UserId);
-        List<Friend> GetFriendById(int id);
-        List<Friend> GetPendingFriend(int id);
+        List<Friend> GetFriendsByUserId(int id);
+        List<Friend> GetPendingFriends(int id);
     }
 }
