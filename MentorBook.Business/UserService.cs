@@ -9,6 +9,7 @@ namespace MentorBook.Business
     {
         private readonly IUserRepository _userRepository;
 
+
         public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
@@ -56,6 +57,21 @@ namespace MentorBook.Business
             }
 
             return result;
+        }
+
+        public UserAdditionalInfoModel GetUserAdditionalInfoByUserId(int userId)
+        {
+            return _userRepository.GetUserAdditionalInfoByUserId(userId);
+        }
+            //if (DateRemoved is not null)
+           // {
+              //  return _userRepository.GetUserAdditionalInfoByUserId (userId);
+            //}
+            //else
+            //{
+            //}
+
+            return _userRepository.GetUserAdditionalInfoByUserId(userId);
         }
     }
 }

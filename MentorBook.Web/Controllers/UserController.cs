@@ -104,5 +104,21 @@ namespace MentorBook.Web.Controllers
 
             return new StatusCodeResult(400);
         }
+
+        [HttpGet("GetUserAdditionalInfoByUserId/{UserId}")]
+
+        public ActionResult<UserAdditionalInfoVM> GetUserAdditionalInfoByUserId(int userId)
+        {
+            UserAdditionalInfoModel user = _userService.GetUserAdditionalInfoByUserId(userId);
+
+            if (user != null)
+            {
+                UserAdditionalInfoModel modelToReturn = new UserAdditionalInfoModel(userId);
+                return Ok(modelToReturn);
+            }
+
+            return NotFound();
+        }
+
     }
 }
