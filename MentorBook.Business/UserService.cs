@@ -63,15 +63,5 @@ namespace MentorBook.Business
         {
             return _userRepository.GetUserAdditionalInfoByUserId(userId);
         }
-            //if (DateRemoved is not null)
-           // {
-              //  return _userRepository.GetUserAdditionalInfoByUserId (userId);
-            //}
-            //else
-            //{
-            //}
-
-            return _userRepository.GetUserAdditionalInfoByUserId(userId);
-        }
     }
 }

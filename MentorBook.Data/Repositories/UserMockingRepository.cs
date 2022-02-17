@@ -51,9 +51,5 @@ namespace MentorBook.Data.Repositories
             return _allUsers.FirstOrDefault(uid => uid.UserId == userId);
         }
 
-        UserAdditionalInfoModel IUserRepository.GetUserAdditionalInfoByUserId(int userId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

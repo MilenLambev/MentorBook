@@ -113,7 +113,7 @@ namespace MentorBook.Web.Controllers
 
             if (user != null)
             {
-                UserAdditionalInfoModel modelToReturn = new UserAdditionalInfoModel(userId);
+                UserAdditionalInfoVM modelToReturn = new UserAdditionalInfoVM(user);
                 return Ok(modelToReturn);
             }
 
