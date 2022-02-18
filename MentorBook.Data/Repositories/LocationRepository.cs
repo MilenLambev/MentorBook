@@ -9,6 +9,7 @@ namespace MentorBook.Data.Repositories
 {
     public class LocationRepository : BaseDapperRepository, ILocationRepository
     {
+        #region Queries
         private const string GET_ALL_COUNTRIES = @"
         SELECT [Id]
               ,[Name]
@@ -22,6 +23,7 @@ namespace MentorBook.Data.Repositories
           FROM [dbo].[Towns]
           WHERE CountryId = @CountryId
         ";
+        #endregion
 
         public LocationRepository(string dbConnString) : base(dbConnString)
         {
