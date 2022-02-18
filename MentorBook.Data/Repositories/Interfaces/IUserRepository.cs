@@ -11,6 +11,5 @@ namespace MentorBook.Data.Repositories
         void InsertUser(User user);
         User GetUserEmailInfo(string email);
         List<User> GetUserByFilter(string fillteringVlaue);
-        List<UserAdditionalInfoModel> GetUserAdditionalInfoByUserId(int userId);
     }
 }

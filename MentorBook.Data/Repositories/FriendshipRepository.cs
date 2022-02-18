@@ -45,11 +45,6 @@ namespace MentorBook.Data.Repositories
 
         public FriendshipRepository(string dbConnString) : base(dbConnString) { }
 
-        public List<Friends> GetFriendByUserId(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Friends> GetFriendsByUserId(int id)
         {
             List<Friends> result = Query<Friends>(GET_FRIENDS_BY_ID, new { id });

@@ -77,16 +77,6 @@ namespace MentorBook.Data.Repositories
                ,@DateCreated)
         ";
 
-        private const string GET_USER_ADDITIONAL_INFO_BY_USER_ID = @"
-        SELECT [UserId]
-              ,[Key]
-              ,[Value]
-              ,[DateCreated]
-              ,[DateRemoved]
-        FROM [dbo].[UserAdditionalInfo]
-        WHERE [UserId] = @UserId AND DateRemoved IS NULL
-        ";
-
         #endregion
 
         public UserRepository(string dbConnString) : base(dbConnString) { }
@@ -130,11 +120,6 @@ namespace MentorBook.Data.Repositories
             return result;
         }
 
-        public List<UserAdditionalInfoModel> GetUserAdditionalInfoByUserId(int userId)
-        {
-            List<UserAdditionalInfoModel> result = Query<UserAdditionalInfoModel>(GET_USER_ADDITIONAL_INFO_BY_USER_ID, new { userId });
-            return result;
-        }
         #endregion
     }
 }
