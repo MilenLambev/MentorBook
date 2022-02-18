@@ -9,5 +9,7 @@ namespace MentorBook.Business
         int GetUserFriendsCountById(int UserId);
         List<Friends> GetFriendsByUserId(int id);
         List<Friends> GetPendingFriendsRequest(int id);
+
+        List<User> GetCommonFriends(int firstFriendId,int secondFriendId);
     }
 }

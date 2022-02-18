@@ -59,6 +59,19 @@ namespace MentorBook.Web.Controllers
 
             return Ok(result);
         }
+        [HttpGet("GetCommonFriends")]
 
+        public ActionResult<List<UserShortDataVM>> GetCommonFriends(int firstFriendId, int secondFriendId)
+        {
+            List<UserShortDataVM> result = new List<UserShortDataVM>();
+            List<User> commonFriends = _friendshipController.GetCommonFriends(firstFriendId, secondFriendId);
+
+            foreach (User user in commonFriends)
+            {
+                UserShortDataVM returnCommonFriends = new UserShortDataVM(user);
+                result.Add(returnCommonFriends);
+            }
+            return Ok(result);
+        }
     }
 }
