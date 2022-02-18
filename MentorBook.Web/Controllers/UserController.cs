@@ -105,7 +105,7 @@ namespace MentorBook.Web.Controllers
             return new StatusCodeResult(400);
         }
 
-        [HttpGet("GetUserAdditionalInfoByUserId/{UserId}")]
+        [HttpGet("GetUserAdditionalInfoByUserId")]
 
         public ActionResult<UserAdditionalInfoVM> GetUserAdditionalInfoByUserId(int userId)
         {
