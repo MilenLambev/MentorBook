@@ -10,6 +10,7 @@ namespace MentorBook.Data.Repositories
     public class UserMockingRepository : IUserRepository
     {
         private static List<User> _allUsersInTheUniverse = new List<User>();
+        private static List<UserAdditionalInfoModel> _allUserAdditionalInfo = new List<UserAdditionalInfoModel>();
         private static int _userId = 0;
 
         public List<User> GetAllUsers()
@@ -43,6 +44,11 @@ namespace MentorBook.Data.Repositories
         public List<User> GetUserByFilter(string fillteringVlaue)
         {
             return _allUsersInTheUniverse;
+        }
+
+        public List<UserAdditionalInfoModel> GetUserAdditionalInfoByUserId(int userId)
+        {
+            return _allUserAdditionalInfo;
         }
 
     }
