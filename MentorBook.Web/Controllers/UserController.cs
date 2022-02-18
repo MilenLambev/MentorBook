@@ -109,16 +109,17 @@ namespace MentorBook.Web.Controllers
 
         public ActionResult<UserAdditionalInfoVM> GetUserAdditionalInfoByUserId(int userId)
         {
-            UserAdditionalInfoModel user = _userService.GetUserAdditionalInfoByUserId(userId);
+            List<UserAdditionalInfoVM> result = new List<UserAdditionalInfoVM>();
+            List<UserAdditionalInfoModel> allUserAdditionalInfo = _userService.GetUserAdditionalInfoByUserId(userId);
 
-            if (user != null)
+            foreach (UserAdditionalInfoModel user in allUserAdditionalInfo)
             {
-                UserAdditionalInfoVM modelToReturn = new UserAdditionalInfoVM(user);
-                return Ok(modelToReturn);
+                UserAdditionalInfoVM userAdditionalInfo = new UserAdditionalInfoVM(user);
+
+                result.Add(userAdditionalInfo);
             }
 
-            return NotFound();
+            return Ok(result);
         }
-
     }
 }

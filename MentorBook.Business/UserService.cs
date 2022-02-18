@@ -59,7 +59,7 @@ namespace MentorBook.Business
             return result;
         }
 
-        public UserAdditionalInfoModel GetUserAdditionalInfoByUserId(int userId)
+        public List<UserAdditionalInfoModel> GetUserAdditionalInfoByUserId(int userId)
         {
             return _userRepository.GetUserAdditionalInfoByUserId(userId);
         }

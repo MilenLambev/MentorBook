@@ -130,10 +130,10 @@ namespace MentorBook.Data.Repositories
             return result;
         }
 
-        public UserAdditionalInfoModel GetUserAdditionalInfoByUserId(int userId)
+        public List<UserAdditionalInfoModel> GetUserAdditionalInfoByUserId(int userId)
         {
             List<UserAdditionalInfoModel> result = Query<UserAdditionalInfoModel>(GET_USER_ADDITIONAL_INFO_BY_USER_ID, new { userId });
-            return result.FirstOrDefault();
+            return result;
         }
         #endregion
     }
