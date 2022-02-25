@@ -16,7 +16,7 @@ namespace MentorBook.Data.Repositories
             SELECT * FROM Friends f WHERE RequestAcceptedDate IS NOT NULL AND User2id = @UserId
             )x";
 
-        private const string GET_COMMON_FRIENDS =
+        private const string GET_COMMON_FRIENDS_BY_ID =
              @"
 (SELECT
 U1.[Id],[Email],[FirstName],[LastName]
@@ -72,7 +72,7 @@ WHERE  [User1Id] = @secondFriendId AND [RequestAcceptedDate] is not NULL)
 
         public List<User> GetCommonFriends(int firstFriendId, int secondFriendId)
         {
-            List<User> result = Query<User>(GET_COMMON_FRIENDS, new {firstFriendId,secondFriendId });
+            List<User> result = Query<User>(GET_COMMON_FRIENDS_BY_ID, new {firstFriendId,secondFriendId });
 
             return result;
         }
