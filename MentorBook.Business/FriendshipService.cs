@@ -1,6 +1,6 @@
 using MentorBook.Data.Models;
 using MentorBook.Data.Repositories;
-using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace MentorBook.Business
@@ -13,10 +13,25 @@ namespace MentorBook.Business
             _friendshipRepository = friendshipRepository;
         }
 
-        public List<User> GetCommonFriends(int firstFriendId, int secondFriendId)
+        public List<Friends> GetCommonFriends(int firstFriendId, int secondFriendId)
         {
+<<<<<<< HEAD
             return _friendshipRepository.GetCommonFriends(firstFriendId,secondFriendId);
             
+=======
+            var firstUserFriends = _friendshipRepository.GetFriendsByUserId(firstFriendId);
+            var secondUserFriends = _friendshipRepository.GetFriendsByUserId(secondFriendId);
+
+            List<Friends> commonFriends = new List<Friends>();
+            foreach(var friend in firstUserFriends)
+            {
+                if(secondUserFriends.Any(p => p.Id == friend.Id))
+                {
+                    commonFriends.Add(friend);
+                }
+            }
+            return commonFriends;
+>>>>>>> c150c6a14aca269f9b0e085149795ead6cca5890
         }
 
         public List<Friends> GetFriendsByUserId(int friendId)

@@ -10,6 +10,12 @@ namespace MentorBook.Web.Models.ViewModels
             this.Name = $"{user.FirstName} {user.LastName}";
         }
 
+        public UserShortDataVM(Friends user)
+        {
+            this.Id = user.Id;
+            this.Name = $"{user.FirstName} {user.LastName}";
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
     }
