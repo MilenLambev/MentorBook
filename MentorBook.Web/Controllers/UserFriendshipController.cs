@@ -59,7 +59,7 @@ namespace MentorBook.Web.Controllers
 
             return Ok(result);
         }
-        [HttpGet("GetCommonFriendsByTwoId")]
+        [HttpGet("GetCommonFriendByID")]
 
         public ActionResult<List<UserShortDataVM>> GetCommonFriends(int firstFriendId, int secondFriendId)
         {
