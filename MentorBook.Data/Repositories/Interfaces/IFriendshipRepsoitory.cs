@@ -7,7 +7,7 @@ namespace MentorBook.Data.Repositories
     public interface IFriendshipRepository
     {
         int GetUserFriendsCountById(int UserId);
-        List<Friends> GetFriendByUserId(int id);
+        List<Friends> GetFriendsByUserId(int id);
         List<Friends> GetPendingFriendsRequest(int id);
     }
 }

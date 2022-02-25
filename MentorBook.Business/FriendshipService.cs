@@ -15,7 +15,7 @@ namespace MentorBook.Business
 
         public List<Friends> GetFriendsByUserId(int friendId)
         {
-            return _friendshipRepository.GetFriendByUserId(friendId);
+            return _friendshipRepository.GetFriendsByUserId(friendId);
         }
 
         public List<Friends> GetPendingFriendsRequest(int id)
