@@ -73,7 +73,7 @@ namespace MentorBook.Web.Controllers
             }
             if (firstFriendId==secondFriendId)
             {
-                return NotFound();
+                return StatusCode(204);
             }
             return Ok(result);
         }

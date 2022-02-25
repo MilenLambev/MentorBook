@@ -16,8 +16,7 @@ namespace MentorBook.Data.Repositories
             SELECT * FROM Friends f WHERE RequestAcceptedDate IS NOT NULL AND User2id = @UserId
             )x";
 
-        private const string GET_COMMON_FRIENDS_BY_ID =
-             @"
+        private const string GET_COMMON_FRIENDS_BY_ID =@"
 (SELECT
 U1.[Id],[Email],[FirstName],[LastName]
 FROM [dbo].[Friends] F
