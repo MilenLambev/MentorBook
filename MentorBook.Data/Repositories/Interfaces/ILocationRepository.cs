@@ -11,5 +11,6 @@ namespace MentorBook.Data.Repositories
     {
         List<Country> GetAllCountries();
         List<Town> GetCitiesByCountryId( int CountryId);
+        public void CreateCountry(Country country);
     }
 }

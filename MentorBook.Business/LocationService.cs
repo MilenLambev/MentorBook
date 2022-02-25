@@ -17,6 +17,30 @@ namespace MentorBook.Business
         {
              _locationRepository = locationRepository;
         }
+
+        public bool CreateCountry(Country country)
+        {
+            bool result = false;
+            bool check = false;
+
+            List<Country> allCountries = _locationRepository.GetAllCountries();
+
+            foreach (Country checkCountry in allCountries)
+            {
+                if (country.Name == checkCountry.Name)
+                {
+                    check = true;
+                }
+            }
+            if (check == false)
+            {
+                _locationRepository.CreateCountry(country);
+                result = true;
+            }
+
+            return result;
+        }
+
         public List<Country> GetAllCountries()
         {
             return _locationRepository.GetAllCountries();

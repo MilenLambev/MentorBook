@@ -11,6 +11,7 @@ namespace MentorBook.Business
     public interface ILocationService
     {
         List<Country> GetAllCountries();
-        List<Town> GetCitiesByCountryId(int coutryId);
+        List<Town> GetCitiesByCountryId(int countryId);
+        public bool CreateCountry(Country country);
     }
 }

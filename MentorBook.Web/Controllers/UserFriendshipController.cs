@@ -59,6 +59,7 @@ namespace MentorBook.Web.Controllers
 
             return Ok(result);
         }
+
         [HttpGet("GetCommonFriendByID")]
 
         public ActionResult<List<UserShortDataVM>> GetCommonFriends(int firstFriendId, int secondFriendId)
@@ -75,6 +76,25 @@ namespace MentorBook.Web.Controllers
             {
                 return StatusCode(204);
             }
+
+        [HttpGet("GetCommonFriends")]
+        public ActionResult<List<FriendsVM>> GetCommonFriendsById(int firstFriendId,int secondFriendId)
+        {
+            List<FriendsVM> result = new List<FriendsVM>();
+            List<Friends> friends = _friendshipController.GetCommonFriendById(firstFriendId, secondFriendId);
+
+            foreach (Friends friendsById in friends)
+            {
+                FriendsVM returnToTheClientModel = new FriendsVM(friendsById);
+                result.Add(returnToTheClientModel);
+            }
+
+            if (firstFriendId==secondFriendId)
+            {
+                return NotFound();
+            }
+            
+
             return Ok(result);
         }
     }

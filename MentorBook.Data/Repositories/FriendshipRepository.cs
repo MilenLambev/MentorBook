@@ -16,7 +16,11 @@ namespace MentorBook.Data.Repositories
             SELECT * FROM Friends f WHERE RequestAcceptedDate IS NOT NULL AND User2id = @UserId
             )x";
 
+
         private const string GET_COMMON_FRIENDS_BY_ID =@"
+
+        private const string GET_COMMON_FRIENDS_BY_ID = @"
+
 (SELECT
 U1.[Id],[Email],[FirstName],[LastName]
 FROM [dbo].[Friends] F
@@ -37,9 +41,13 @@ UNION
 SELECT U2.[Id],[Email],[FirstName],[LastName]
 FROM [dbo].[Friends] F
 LEFT JOIN [Users] U2 ON U2.Id = F.User2Id
+
 WHERE  [User1Id] = @secondFriendId AND [RequestAcceptedDate] is not NULL) 
 ";
  
+
+WHERE  [User1Id] = @secondFriendId AND [RequestAcceptedDate] is not NULL)
+";
 
         private const string GET_FRIENDS_BY_ID = @"
         SELECT
@@ -69,12 +77,22 @@ WHERE  [User1Id] = @secondFriendId AND [RequestAcceptedDate] is not NULL)
 
         public FriendshipRepository(string dbConnString) : base(dbConnString) { }
 
+
         public List<User> GetCommonFriends(int firstFriendId, int secondFriendId)
         {
             List<User> result = Query<User>(GET_COMMON_FRIENDS_BY_ID, new {firstFriendId,secondFriendId });
 
             return result;
         }
+
+        public List<Friends> GetCommonFriendById(int firstFriendId, int secondFriendId)
+        {
+            List<Friends> result = Query<Friends>(GET_COMMON_FRIENDS_BY_ID, new { firstFriendId, secondFriendId });
+
+            return result;
+        }
+
+
         public List<Friends> GetFriendsByUserId(int id)
         {
             List<Friends> result = Query<Friends>(GET_FRIENDS_BY_ID, new { id });
@@ -82,6 +100,7 @@ WHERE  [User1Id] = @secondFriendId AND [RequestAcceptedDate] is not NULL)
             return result;
         }
 
+        
         public List<Friends> GetPendingFriendsRequest(int id)
         {
             List<Friends> result = Query<Friends>(GET__PENDING_FRIENDS_REQUEST_BY_ID, new { id });
