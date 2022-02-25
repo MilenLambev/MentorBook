@@ -76,8 +76,6 @@ WHERE  [User1Id] = @secondFriendId AND [RequestAcceptedDate] is not NULL)
 
             return result;
         }
-      
-
         public List<Friends> GetFriendsByUserId(int id)
         {
             List<Friends> result = Query<Friends>(GET_FRIENDS_BY_ID, new { id });
