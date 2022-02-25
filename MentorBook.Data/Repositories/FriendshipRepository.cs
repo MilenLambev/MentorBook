@@ -1,4 +1,4 @@
-using MentorBook.Data.Models;
+﻿using MentorBook.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,19 +16,32 @@ namespace MentorBook.Data.Repositories
             SELECT * FROM Friends f WHERE RequestAcceptedDate IS NOT NULL AND User2id = @UserId
             )x";
 
-        private const string GET_COMMON_FRIENDS=
+        private const string GET_COMMON_FRIENDS =
              @"
-        SELECT
-	    U1. [Id],[Email],[FirstName],[LastName]
-        FROM [dbo].[Friends] F 
-        INNER JOIN [Users] U1 ON U1.Id = F.User1Id 
-         WHERE  [User2Id] = @firstFriendId AND [RequestAcceptedDate] is not NULL
-         UNION
-        SELECT U2.[Id],[Email],[FirstName],[LastName]
-        FROM [dbo].[Friends] F 
-        LEFT JOIN [Users] U2 ON U2.Id = F.User2Id
-        WHERE  [User1Id] = @secondFriendId AND [RequestAcceptedDate] is not NULL
-        ";
+(SELECT
+U1.[Id],[Email],[FirstName],[LastName]
+FROM [dbo].[Friends] F
+LEFT JOIN [Users] U1 ON U1.Id = F.User1Id
+WHERE  [User2Id] = @firstFriendId AND [RequestAcceptedDate] is not NULL
+UNION
+SELECT U2.[Id],[Email],[FirstName],[LastName]
+FROM [dbo].[Friends] F
+LEFT JOIN [Users] U2 ON U2.Id = F.User2Id
+WHERE  [User1Id] =  @firstFriendId AND [RequestAcceptedDate] is not NULL)
+INTERSECT
+(SELECT
+U1.[Id],[Email],[FirstName],[LastName]
+FROM [dbo].[Friends] F
+LEFT JOIN [Users] U1 ON U1.Id = F.User1Id
+WHERE  [User2Id] =  @secondFriendId AND [RequestAcceptedDate] is not NULL
+UNION
+SELECT U2.[Id],[Email],[FirstName],[LastName]
+FROM [dbo].[Friends] F
+LEFT JOIN [Users] U2 ON U2.Id = F.User2Id
+WHERE  [User1Id] = @secondFriendId AND [RequestAcceptedDate] is not NULL) 
+";
+ 
+
         private const string GET_FRIENDS_BY_ID = @"
         SELECT
 	    U1. [Id],[Email],[FirstName],[LastName]
@@ -63,6 +76,7 @@ namespace MentorBook.Data.Repositories
 
             return result;
         }
+      
 
         public List<Friends> GetFriendsByUserId(int id)
         {
