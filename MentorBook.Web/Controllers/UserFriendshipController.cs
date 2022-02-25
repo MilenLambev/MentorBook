@@ -71,6 +71,10 @@ namespace MentorBook.Web.Controllers
                 UserShortDataVM returnCommonFriends = new UserShortDataVM(user);
                 result.Add(returnCommonFriends);
             }
+            if (firstFriendId==secondFriendId)
+            {
+                return NotFound();
+            }
             return Ok(result);
         }
     }
