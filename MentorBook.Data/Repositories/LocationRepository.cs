@@ -9,6 +9,7 @@ namespace MentorBook.Data.Repositories
 {
     public class LocationRepository : BaseDapperRepository, ILocationRepository
     {
+        #region Queries
         private const string GET_ALL_COUNTRIES = @"
         SELECT [Id]
               ,[Name]
@@ -23,8 +24,23 @@ namespace MentorBook.Data.Repositories
           WHERE CountryId = @CountryId
         ";
 
+        private const string CREATE_COUNTRU= @"
+        INSERT INTO [dbo].[Countries]
+               [Id]
+              ,[Name]    
+         VALUES
+               (@Id
+               ,@Name)
+        ";
+        #endregion
+
         public LocationRepository(string dbConnString) : base(dbConnString)
         {
+        }
+
+        public void CreateCountry(Country country)
+        {
+            Execute(CREATE_COUNTRU, country);
         }
 
         public List<Country> GetAllCountries()

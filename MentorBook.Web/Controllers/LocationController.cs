@@ -55,5 +55,22 @@ namespace MentorBook.Web.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost("CreateCountry")]
+        public ActionResult CreateCountry([FromBody] CreateCountryQM country)
+        {
+            Country dbCountry = new Country();
+            dbCountry.Id = country.Id;
+            dbCountry.Name = country.Name;
+
+            bool result = _locationService.CreateCountry(dbCountry);
+
+            if (result == true)
+            {
+                return Ok();
+            }
+
+            return new StatusCodeResult(400);
+        }
     }
 }

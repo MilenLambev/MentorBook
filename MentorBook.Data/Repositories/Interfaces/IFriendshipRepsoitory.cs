@@ -9,6 +9,10 @@ namespace MentorBook.Data.Repositories
         int GetUserFriendsCountById(int UserId);
         List<Friends> GetFriendsByUserId(int id);
         List<Friends> GetPendingFriendsRequest(int id);
+
         List<User> GetCommonFriends(int firstFriendId,int secondFriendId);
+
+        List<Friends> GetCommonFriendById(int firstFriendId, int secondFriendId);
+
     }
 }
