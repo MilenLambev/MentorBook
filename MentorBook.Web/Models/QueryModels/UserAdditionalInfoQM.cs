@@ -8,7 +8,7 @@ namespace MentorBook.Web.Models.QueryModels
 {
     public class UserAdditionalInfoQM
     {
-        [Required]
+        [Required] 
         public int UserID {get; set;}
         [Required]
         public string Key {get;set;}
