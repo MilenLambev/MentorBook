@@ -12,5 +12,7 @@ namespace MentorBook.Data.Repositories
         User GetUserEmailInfo(string email);
         List<User> GetUserByFilter(string fillteringVlaue);
         List<UserAdditionalInfoModel> GetUserAdditionalInfoByUserId(int userId);
+
+        void CreateUserAdditionalInfoById(UserAdditionalInfoModel userAdditionalInfo);
     }
 }

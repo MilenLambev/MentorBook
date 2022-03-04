@@ -87,6 +87,11 @@ namespace MentorBook.Data.Repositories
         WHERE [UserId] = @UserId AND DateRemoved IS NULL
         ";
 
+        private const string CREATE_USER_ADDITIONAL_INFO_BY_USER_ID = @"
+            INSERT INTO UserAdditionalInfo (UserId, [Key], Value, DateCreated)
+            VALUES(@UserID,@Key,@Value, @DateCreated)
+        ";
+
         #endregion
 
         public UserRepository(string dbConnString) : base(dbConnString) { }
@@ -135,6 +140,12 @@ namespace MentorBook.Data.Repositories
             List<UserAdditionalInfoModel> result = Query<UserAdditionalInfoModel>(GET_USER_ADDITIONAL_INFO_BY_USER_ID, new { userId });
             return result;
         }
+
+        public void CreateUserAdditionalInfoById(UserAdditionalInfoModel userAdditionalInfo)
+        {
+            Execute(CREATE_USER_ADDITIONAL_INFO_BY_USER_ID, userAdditionalInfo);
+        }
+
         #endregion
     }
 }
