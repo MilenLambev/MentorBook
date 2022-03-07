@@ -121,5 +121,17 @@ namespace MentorBook.Web.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost("CreateUserAdditionalInfoById")]
+        public ActionResult CreateUserAdditionalInfo([FromBody] UserAdditionalInfoQM additionalUserInfo)
+        {
+            UserAdditionalInfoModel additionalInfo = new UserAdditionalInfoModel();
+            additionalInfo.UserId = additionalUserInfo.UserID;
+            additionalInfo.Key = additionalUserInfo.Key;
+            additionalInfo.Value = additionalUserInfo.Value;
+            additionalInfo.DateCreated = DateTime.UtcNow;
+            _userService.CreateUserAdditionalInfoById(additionalInfo);
+            return Ok();
+        }
     }
 }

@@ -51,5 +51,9 @@ namespace MentorBook.Data.Repositories
             return _allUserAdditionalInfo;
         }
 
+        public void CreateUserAdditionalInfoById(UserAdditionalInfoModel userAdditionalInfo)
+        {
+            _allUserAdditionalInfo.Add(userAdditionalInfo);
+        }
     }
 }

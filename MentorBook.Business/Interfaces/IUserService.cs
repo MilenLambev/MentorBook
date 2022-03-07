@@ -12,5 +12,6 @@ namespace MentorBook.Business
         User GetUserEmail(string email);
         List<User> GetUserByFilter(string fillteringVlaue);
         List<UserAdditionalInfoModel> GetUserAdditionalInfoByUserId(int userId);
+        void CreateUserAdditionalInfoById(UserAdditionalInfoModel additionalInfo);
     }
 }

@@ -63,5 +63,11 @@ namespace MentorBook.Business
         {
             return _userRepository.GetUserAdditionalInfoByUserId(userId);
         }
+
+        public void CreateUserAdditionalInfoById(UserAdditionalInfoModel additionalInfo)
+        {
+
+            _userRepository.CreateUserAdditionalInfoById(additionalInfo);
+        }
     }
 }
