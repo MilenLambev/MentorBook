@@ -9,6 +9,8 @@ namespace MentorBook.Data.Repositories
 {
     public class LocationRepository : BaseDapperRepository, ILocationRepository
     {
+        private readonly ILocationRepository _locationRepository;
+
         private const string GET_ALL_COUNTRIES = @"
         SELECT [Id]
               ,[Name]
@@ -21,6 +23,13 @@ namespace MentorBook.Data.Repositories
               ,[CountryId]
           FROM [dbo].[Towns]
           WHERE CountryId = @CountryId
+        ";
+
+        private const string GET_TOWN_BY_ID = @"
+        SELECT [Id]
+              ,[Name]
+          FROM [dbo].[Towns]
+          WHERE Id = @Id
         ";
 
         public LocationRepository(string dbConnString) : base(dbConnString)
@@ -38,6 +47,11 @@ namespace MentorBook.Data.Repositories
         {
             List<Town> result = Query<Town>(GET_CITIES_BY_COUNTRIE_ID, new { CountryId });
 
+            return result;
+        }
+        public Town GetTownById(int TownId)
+        {
+            Town result = Query<Town>(GET_TOWN_BY_ID, new { TownId }).FirstOrDefault();
             return result;
         }
     }

@@ -135,6 +135,7 @@ namespace MentorBook.Data.Repositories
             List<UserAdditionalInfoModel> result = Query<UserAdditionalInfoModel>(GET_USER_ADDITIONAL_INFO_BY_USER_ID, new { userId });
             return result;
         }
+
         #endregion
     }
 }

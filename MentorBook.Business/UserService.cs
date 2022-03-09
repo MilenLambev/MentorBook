@@ -8,11 +8,12 @@ namespace MentorBook.Business
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly ILocationRepository _locationRepository;
 
-
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, ILocationRepository locationRepository)
         {
             _userRepository = userRepository;
+            _locationRepository = locationRepository;
         }
 
         public List<User> GetAllUsers()
@@ -49,6 +50,24 @@ namespace MentorBook.Business
 
                 // Check if current town id and home town id exists in the database
 
+                if (user.CurrentTownId.HasValue)
+                {
+                    Town existingCurrentTown = _locationRepository.GetTownById(user.CurrentTownId.Value);
+                    if(existingCurrentTown == null)
+                    {
+                        return false;
+                    }
+                }
+
+                if (user.HomeTownId.HasValue)
+                {
+                    Town currentHomeTown = _locationRepository.GetTownById(user.HomeTownId.Value);
+                    if (currentHomeTown == null)
+                    {
+                        return false;
+                    }
+                }
+
                 // Insert user to the database
                 _userRepository.InsertUser(user);
 
@@ -63,5 +82,6 @@ namespace MentorBook.Business
         {
             return _userRepository.GetUserAdditionalInfoByUserId(userId);
         }
+
     }
 }
