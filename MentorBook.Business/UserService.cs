@@ -39,7 +39,7 @@ namespace MentorBook.Business
         {
             bool result = false;
 
-            // Check if user with the same email already exists
+            // check if user with the same email already exists
             User userWithTheSameEmail = _userRepository.GetUserByEmail(user.Email);
 
             if (userWithTheSameEmail == null)
@@ -49,7 +49,7 @@ namespace MentorBook.Business
 
                 // Check if current town id and home town id exists in the database
 
-                // Insert user to the database
+                 // Insert user to the database
                 _userRepository.InsertUser(user);
 
                 // Switch result to true
