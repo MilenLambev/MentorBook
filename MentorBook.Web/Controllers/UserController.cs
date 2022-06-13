@@ -93,7 +93,10 @@ namespace MentorBook.Web.Controllers
             dbUser.LastName = user.LastName;
             dbUser.Email = user.Email;
             dbUser.Phone = user.Phone;
+            dbUser.CurrentTownId = (int)user.CurrentTownId;
+            dbUser.HomeTownId = (int)user.HomeTownId;
             dbUser.DateOfBirth = user.DateOfBirth;
+            
 
             bool result = _userService.InsertUser(dbUser);
 

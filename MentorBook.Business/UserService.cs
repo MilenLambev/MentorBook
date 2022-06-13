@@ -39,20 +39,20 @@ namespace MentorBook.Business
         {
             bool result = false;
 
-            // Check if user with the same email already exists
+            //Check if user with the same email already exists
             User userWithTheSameEmail = _userRepository.GetUserByEmail(user.Email);
 
             if (userWithTheSameEmail == null)
             {
-                // Add date created to the user
+                //Add date created to the user
                 user.DateCreated = DateTime.Now;
 
-                // Check if current town id and home town id exists in the database
+                //Check if current town id and home town id exists in the database
 
-                // Insert user to the database
+                 //Insert user to the database
                 _userRepository.InsertUser(user);
 
-                // Switch result to true
+                //Switch result to true
                 result = true;
             }
 
