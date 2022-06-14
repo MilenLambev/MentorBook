@@ -1,0 +1,19 @@
+.userTable{
+    border: 1px solid black;
+}
+
+tr:nth-child(odd){
+    color: black;
+    background-color: #ddd;
+    
+}
+
+.userDetails{
+    display: none;
+    border-style: solid;
+    margin-left: 10px;
+}
+
+body{
+    display: flex;
+}

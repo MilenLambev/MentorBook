@@ -66,7 +66,10 @@ namespace MentorBook.Web
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors(c => c
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
