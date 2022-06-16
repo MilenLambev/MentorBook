@@ -12,7 +12,7 @@ async function getPosts(){
     
 }
 
-function createPost(postData){
+async function createPost(postData){
 
     let postBody = postData.body
     let postCreationDate = postData.createdDate
@@ -22,18 +22,18 @@ function createPost(postData){
     let postUser = postData.userName
     let postUserID = postData.userId 
 
-    let postComments = getPostDataById(postID)
-
-    generatePostsHTML()
+    let postComments = await getPostDataById(postID)
+    generatePostsHTML(postBody, postCreationDate, postID, postShares, postTitle, postUser, postUserID, postComments)
 }
 
 
-function generatePostsHTML()
+function generatePostsHTML(postBody, postCreationDate, postID, postShares, postTitle, postUser, postUserID, postComments)
 {
     let postsWrapper = document.querySelector('.postsWrapper')
 
     let postBlock = document.createElement('div')
     postBlock.className = 'post'
+    postBlock.id = postID
 
     let postOwnerParagraph = document.createElement('p')
     postOwnerParagraph.className = 'postOwner'
@@ -72,6 +72,38 @@ function generatePostsHTML()
     
     let postCommentSection = document.createElement('div')
     postCommentSection.className = 'commentSection'
+
+    if(postComments.length > 0)
+    {
+        postComments.forEach((comment) => {
+            let commentBody = comment.body
+            let commentOwner = comment.userName
+            let commentOwnerId = comment.userId
+            let commentCreationDate = comment.createdDate
+
+            let commentWrapper = document.createElement('div')
+            commentWrapper.className = 'comment'
+
+            let commentBodyElement = document.createElement('p')
+            commentBodyElement.className = 'commentBody'
+            commentBodyElement.innerText = commentBody
+
+            let commentOwnerElement = document.createElement('span')
+            commentOwnerElement.className = 'commentOwner'
+            commentOwnerElement.id = commentOwnerId
+            commentOwnerElement.innerText = commentOwner
+
+            let commentDateElement = document.createElement('span')
+            commentDateElement.className = 'commentPostDate'
+            commentOwnerElement.innerText = commentCreationDate
+
+            commentWrapper.appendChild(commentOwnerElement)
+            commentWrapper.appendChild(commentDateElement)
+            commentWrapper.appendChild(commentBodyElement)
+            postCommentSection.appendChild(commentWrapper)
+
+        })
+    }
     
     postOwnerParagraph.innerText = postUser
     postDate.innerText = postCreationDate
