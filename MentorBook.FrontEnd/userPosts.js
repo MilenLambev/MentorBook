@@ -22,8 +22,14 @@ function createPost(postData){
     let postUser = postData.userName
     let postUserID = postData.userId 
 
-    getPostDataById(postID)
-    
+    let postComments = getPostDataById(postID)
+
+    generatePostsHTML()
+}
+
+
+function generatePostsHTML()
+{
     let postsWrapper = document.querySelector('.postsWrapper')
 
     let postBlock = document.createElement('div')
@@ -31,29 +37,29 @@ function createPost(postData){
 
     let postOwnerParagraph = document.createElement('p')
     postOwnerParagraph.className = 'postOwner'
-
+    
     let postDate = document.createElement('p')
 
     postDate.className = 'postDate'
 
     let breakLine = document.createElement('hr')
-
+    
     let postContent = document.createElement('p')
     postContent.className = 'postContent'
-
+    
     //#region interaction buttons
     let postSharesSpan = document.createElement('span')
     postSharesSpan.className = 'sharesButton button'
 
     let postSharesIcon = document.createElement('i')
     postSharesIcon.className='fa-solid fa-share-nodes'
-
+    
     let postLikesSpan = document.createElement('span')
     postLikesSpan.className = 'likesButton button'
-
+    
     let postLikesIcon = document.createElement('i')
     postLikesIcon.className='fa-solid fa-thumbs-up'
-
+    
     let postCommentSpan = document.createElement('span')
     postCommentSpan.className = 'CommentButton button'
 
@@ -63,10 +69,10 @@ function createPost(postData){
     let postInteractionButtons = document.createElement('div')
     postInteractionButtons.className='postInteractionButtons' 
     //#endregion
-
+    
     let postCommentSection = document.createElement('div')
     postCommentSection.className = 'commentSection'
-
+    
     postOwnerParagraph.innerText = postUser
     postDate.innerText = postCreationDate
     
@@ -79,30 +85,28 @@ function createPost(postData){
     postBlock.appendChild(breakLine)
     
     postBlock.appendChild(postContent)
-        
+    
     postSharesSpan.appendChild(postSharesIcon)
     postLikesSpan.appendChild(postLikesIcon)
     postCommentSpan.appendChild(postCommentIcon)
-
+    
     postInteractionButtons.appendChild(postSharesSpan)
     postInteractionButtons.appendChild(postLikesSpan)
     postInteractionButtons.appendChild(postCommentSpan)
-
+    
     postBlock.appendChild(postInteractionButtons)
     postBlock.append(postCommentSection)
-
-
+    
+    
     postsWrapper.appendChild(postBlock)
-
-
 }
-
-getPosts()
 
 
 async function getPostDataById(id) {
     let res = await fetch(`https://localhost:5001/api/Posts/GetComments?rootPostId=${id}`)
     let comments = await res.json()
     
-    console.log(comments)
+    return comments
 }
+
+getPosts()
