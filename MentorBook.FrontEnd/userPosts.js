@@ -22,7 +22,8 @@ function createPost(postData){
     let postUser = postData.userName
     let postUserID = postData.userId 
 
-
+    getPostDataById(postID)
+    
     let postsWrapper = document.querySelector('.postsWrapper')
 
     let postBlock = document.createElement('div')
@@ -41,7 +42,6 @@ function createPost(postData){
     postContent.className = 'postContent'
 
     //#region interaction buttons
-
     let postSharesSpan = document.createElement('span')
     postSharesSpan.className = 'sharesButton button'
 
@@ -61,9 +61,11 @@ function createPost(postData){
     postCommentIcon.className='fa-solid fa-comment'
 
     let postInteractionButtons = document.createElement('div')
-    postInteractionButtons.className='postInteractionButtons'
-    
+    postInteractionButtons.className='postInteractionButtons' 
     //#endregion
+
+    let postCommentSection = document.createElement('div')
+    postCommentSection.className = 'commentSection'
 
     postOwnerParagraph.innerText = postUser
     postDate.innerText = postCreationDate
@@ -87,6 +89,7 @@ function createPost(postData){
     postInteractionButtons.appendChild(postCommentSpan)
 
     postBlock.appendChild(postInteractionButtons)
+    postBlock.append(postCommentSection)
 
 
     postsWrapper.appendChild(postBlock)
@@ -95,3 +98,11 @@ function createPost(postData){
 }
 
 getPosts()
+
+
+async function getPostDataById(id) {
+    let res = await fetch(`https://localhost:5001/api/Posts/GetComments?rootPostId=${id}`)
+    let comments = await res.json()
+    
+    console.log(comments)
+}
