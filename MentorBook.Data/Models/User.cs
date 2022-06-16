@@ -14,9 +14,9 @@ namespace MentorBook.Data.Models
         public string LastName { get; set; }
         public string Phone { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public int HomeTownId { get; set; }
+        public int? HomeTownId { get; set; }
         public string HomeTown { get; set; }
-        public int CurrentTownId { get; set; }
+        public int? CurrentTownId { get; set; }
         public string CurrentTown { get; set; }
         public DateTime DateCreated { get; set; }
     }

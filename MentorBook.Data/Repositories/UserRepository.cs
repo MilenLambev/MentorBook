@@ -117,10 +117,7 @@ namespace MentorBook.Data.Repositories
             Execute(INSERT_USER, user);
         }
 
-        public User GetUserByEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public User GetUserEmailInfo(string email)
         {
@@ -144,6 +141,13 @@ namespace MentorBook.Data.Repositories
         public void CreateUserAdditionalInfoById(UserAdditionalInfoModel userAdditionalInfo)
         {
             Execute(CREATE_USER_ADDITIONAL_INFO_BY_USER_ID, userAdditionalInfo);
+        }
+
+        public User GetUserByEmail(string Email)
+        {
+            List<User> result = Query<User>(GET_USER_BY_EMAIL, new { Email });
+
+            return result.FirstOrDefault();
         }
 
         #endregion
