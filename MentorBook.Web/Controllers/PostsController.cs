@@ -55,7 +55,7 @@ namespace MentorBook.Web.Controllers
         }
 
         [HttpPost("CreateComment")]
-        public ActionResult<List<CreateCommentQM>> CreateComment(int rootPostId, int AuthorID, string CommentContent)
+        public ActionResult CreateComment(int rootPostId, int AuthorID, string CommentContent)
         {
             bool result = _postsService.CreateComment(rootPostId, AuthorID, CommentContent);
 
