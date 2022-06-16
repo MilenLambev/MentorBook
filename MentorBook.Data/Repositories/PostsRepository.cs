@@ -44,6 +44,19 @@ ORDER BY [DateCreated] DESC";
 LEFT JOIN [dbo].[Users] U ON U.[Id] = P.[UserId]
 WHERE P.[ParentPostId] IS NOT NULL AND P.[ParentPostId] = @rootPostId
 ORDER BY [DateCreated] DESC";
+        private const string CREATE_COMMENT = @"
+        INSERT INTO [dbo].[Posts]
+               ([userID], 
+                [parentPostId], 
+                [Title],
+                [Body],
+                [DateCreated])
+        VALUES(
+            @authorID,
+            @postID,
+            @placeholderTitle,
+            @commContent,
+            @dateCreated)";
         private const string GET_POSTS_OF_USER = @"SELECT U.FirstName
       , U.LastName
       ,P.[Id]
@@ -74,9 +87,14 @@ ORDER BY [DateCreated] DESC";
 
             return result;
         }
-        public bool CreateComment(int rootPostId, int AuthorID, string CommentContent)
+        public void CreateComment(int postID, int authorID, string commContent)
         {
-            return true;
+
+            DateTime dateCreated = DateTime.Now;
+            // I am adding this because comments do not seem to have titles, yet they are required by the database
+            string placeholderTitle = "_"; 
+            Execute(CREATE_COMMENT,  new {postID, authorID, placeholderTitle, commContent,dateCreated});
+            
         }
         public List<Post> GetPostsOfUser(int userId)
         {

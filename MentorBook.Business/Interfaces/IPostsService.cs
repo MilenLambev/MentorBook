@@ -11,7 +11,7 @@ namespace MentorBook.Business
     {
         List<Post> GetPostsOfUser (int userId);
         List<Post> GetComments(int rootPostId);
-        bool CreateComment(int rootPostId, int AuthorID, string CommentContent);
+        void CreateComment(int postID, int authorID, string commContent);
         List<Post> GetAggregatedPostsOfFriends(int userId);
 
     }

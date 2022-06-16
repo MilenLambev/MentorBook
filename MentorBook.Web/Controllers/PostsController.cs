@@ -55,16 +55,9 @@ namespace MentorBook.Web.Controllers
         }
 
         [HttpPost("CreateComment")]
-        public ActionResult CreateComment(int rootPostId, int AuthorID, string CommentContent)
+        public void CreateComment([FromBody] CreateCommentQM c, int postID, int authorID, string commContent)
         {
-            bool result = _postsService.CreateComment(rootPostId, AuthorID, CommentContent);
-
-            if(result == true)
-            {
-                return Ok(result);
-            }
-            
-            return new StatusCodeResult(400);
+            _postsService.CreateComment(postID, authorID, commContent);
         }
 
         [HttpGet("GetPostsOfUser")]

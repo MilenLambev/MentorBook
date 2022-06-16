@@ -26,9 +26,9 @@ namespace MentorBook.Business
             return _postsRepository.GetComments(rootPostId);
         }
 
-        public bool CreateComment(int rootPostId, int AuthorID, string CommentContent)
+        public void CreateComment(int postID, int authorID, string commContent)
         {
-            return true;
+            _postsRepository.CreateComment(postID, authorID, commContent);
         }
 
         public List<Post> GetPostsOfUser(int userId)
