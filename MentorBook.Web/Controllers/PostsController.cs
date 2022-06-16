@@ -54,6 +54,12 @@ namespace MentorBook.Web.Controllers
             return Ok(result);
         }
 
+        [HttpGet("CreateComment")]
+        public ActionResult<List<CreateCommentQM>> CreateComment(int rootPostId, int AuthorID, string CommentContent)
+        {
+            return Ok(result);
+        }
+
         [HttpGet("GetPostsOfUser")]
         public ActionResult<List<PostVM>> GetPostsOfUser(int userId)
         {
