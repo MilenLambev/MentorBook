@@ -11,6 +11,7 @@ namespace MentorBook.Data.Repositories
     {
         List<Post> GetPostsOfUser(int userId);
         List<Post> GetComments(int rootPostId);
+        bool CreateComment(int rootPostId, int AuthorID, string CommentContent);
         List<Post> GetAggregatedPostsOfFriends(int userId);
     }
 }
