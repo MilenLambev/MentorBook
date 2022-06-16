@@ -74,7 +74,10 @@ ORDER BY [DateCreated] DESC";
 
             return result;
         }
-
+        public bool CreateComment(int rootPostId, int AuthorID, string CommentContent)
+        {
+            return true;
+        }
         public List<Post> GetPostsOfUser(int userId)
         {
             List<Post> result = Query<Post>(GET_POSTS_OF_USER, new { userId });
