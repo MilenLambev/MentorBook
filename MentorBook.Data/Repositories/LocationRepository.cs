@@ -26,11 +26,9 @@ namespace MentorBook.Data.Repositories
 
         private const string CREATE_COUNTRU= @"
         INSERT INTO [dbo].[Countries]
-               [Id]
-              ,[Name]    
+               ([Name] )   
          VALUES
-               (@Id
-               ,@Name)
+               (@Name)
         ";
         #endregion
 
