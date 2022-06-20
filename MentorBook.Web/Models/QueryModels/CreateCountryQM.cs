@@ -9,8 +9,6 @@ namespace MentorBook.Web.Models.QueryModels
     public class CreateCountryQM
     {
         [Required]
-        public int Id { get; set; }
-        [Required]
         public string Name { get; set; }
     }
 }
